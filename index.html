@@ -4,17 +4,24 @@
   <title>Awesome Games</title>
   <style>
     .game-card {
-      width: 250px;
+      width: 500px;
       padding: 20px;
       background-color: #f0f0f0;
       border-radius: 5px;
       margin: 10px;
       display: inline-block;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background: url('images/games_mainpage.jpg');
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
     }
     body{
         height: 100vh;
-        
+        background: url('images/games_mainpage.jpg');
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     .game-card img {
       width: 100%;
@@ -32,37 +39,44 @@
     .game-card p {
       font-size: 14px;
     }
+    .for_color{
+      color: red;
+    }
   </style>
 </head>
 <body>
-  <h1>Welcome to GameZone and retrieve your childhood!</h1>
+  <h1 class="for_color">Welcome to GameZone and retrieve your childhood!</h1>
   
   <div class="game-card">
-    <img src="game1.jpg" alt="Game 1">
     <h3>Game 1</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut finibus lectus.</p>
-    <button>Play Now</button>
+    <form action = "/" method = "POST">
+      <button type="submit" name="submit">Play Now</button>
+    </form>
   </div>
   
   <div class="game-card">
-    <img src="game2.jpg" alt="Game 2">
     <h3>Game 2</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut finibus lectus.</p>
-    <button>Play Now</button>
+    <form action = "/pokeball" method = "POST">
+      <button type="submit" name="submit">Play Now</button>
+    </form>
   </div>
   
   <div class="game-card">
-    <img src="game3.jpg" alt="Game 3">
     <h3>Game 3</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut finibus lectus.</p>
-    <button>Play Now</button>
+    <form action = "/NumberGuesser" method = "POST">
+      <button type="submit" name="submit">Play Now</button>
+    </form>
   </div>
   
   <div class="game-card">
-    <img src="game4.jpg" alt="Game 4">
     <h3>Game 4</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut finibus lectus.</p>
-    <button>Play Now</button>
+    <form action = "/xyz" method = "POST">
+      <button type="submit" name="submit">Play Now</button>
+    </form>
   </div>
 </body>
 </html>
