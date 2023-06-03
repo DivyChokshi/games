@@ -2,6 +2,9 @@
 const Numbushes=45;
 const pokeball=5;
 const player=document.querySelector('.player');
+var timerDisplay = document.getElementById('timer');
+var scoreDisplay = document.getElementById("score");
+// console.log(timerDisplay);
 const player_pos={
     x: parseInt(window.innerWidth/2),
     y: parseInt(window.innerHeight/2),
@@ -78,6 +81,7 @@ function checkcollision(){
     balls.forEach((ball)=>{
         if(collision(ball.ball, player)){
             sound.play()
+            
             ball.ball.remove()
             generateBall()
         }
@@ -127,3 +131,17 @@ window.addEventListener('keyup',function(){
     player_vel.y=0;
     player.classList.remove('active');
 })
+// code for setting interval for 60s
+function updateTimer() {
+    console.log(timerDisplay.innerText);
+   var seconds= Number(timerDisplay.innerText);
+    console.log(seconds);
+    seconds--;
+    timerDisplay.innerText=seconds;
+    if (seconds < 0) {
+      clearInterval(timerInterval);
+      alert("Time's up!");
+    }
+}
+
+var timerInterval = setInterval(updateTimer, 1000);
