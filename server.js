@@ -12,19 +12,15 @@ app.get("/",(req,res)=>{
     console.log(req.body);
     res.sendFile(__dirname + "/index.html");
 })
-app.post("/",(req,res)=>{
-    console.log(req.body);
-    res.send("hello");
-})
 app.post("/pokeball",(req,res)=>{
     console.log(req.body);
     res.sendFile(__dirname + "/pokeball/pokeball.html");
 })
-app.post('/NumberGuesser',(req,res)=>{
+app.post("/score",(req,res)=>{
+    res.sendFile(__dirname + "/thanksspage.html");
     console.log(req.body);
-    res.send("hello");
 })
-app.post('/xyz',(req,res)=>{
+app.post("/",(req,res)=>{
     console.log(req.body);
-    res.send("hellos");
+    res.sendFile(__dirname + "/index.html");
 })

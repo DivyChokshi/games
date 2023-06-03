@@ -3,7 +3,7 @@ const Numbushes=45;
 const pokeball=5;
 const player=document.querySelector('.player');
 var timerDisplay = document.getElementById('timer');
-var scoreDisplay = document.getElementById("score");
+var scoreDisplay = document.getElementById("scorevalue");
 // console.log(timerDisplay);
 const player_pos={
     x: parseInt(window.innerWidth/2),
@@ -81,7 +81,11 @@ function checkcollision(){
     balls.forEach((ball)=>{
         if(collision(ball.ball, player)){
             sound.play()
-            
+            console.log(scoreDisplay.innerText);
+            var score= Number(scoreDisplay.innerText);
+            console.log(score);
+            score++;
+            scoreDisplay.innerText=score;
             ball.ball.remove()
             generateBall()
         }
@@ -138,9 +142,10 @@ function updateTimer() {
     console.log(seconds);
     seconds--;
     timerDisplay.innerText=seconds;
-    if (seconds < 0) {
+    if (seconds<0) {
       clearInterval(timerInterval);
-      alert("Time's up!");
+      document.getElementById('score').submit();
+    //   alert("Time's up!");
     }
 }
 
