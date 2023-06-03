@@ -1,8 +1,10 @@
 const express=require('express');
 const app=express();
 const bodyParser=require("body-parser");
+const path = require('path');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/images', express.static(__dirname + "/images"));
+app.use(express.static(path.join(__dirname, 'pokeball')));
 app.listen(3000,function(){
     console.log("the port is ready at 3000");
 })
