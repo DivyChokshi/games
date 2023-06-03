@@ -11,7 +11,8 @@
     <div class="player"></div>
     <div id="timer">60</div>
     <form action="/score" method="POST" id="score">
-        Score:<span  name="score" id="scorevalue"> 0</span>
+        Score:
+        <input type="text" value="0" name="score" id="scorevalue" action="/score" method="POST">
     </form>
     <script src="main.js"></script>
 </body>

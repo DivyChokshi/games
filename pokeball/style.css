@@ -54,3 +54,12 @@ body{
     top: 10px;
     right: 10px;
   }
+  #scorevalue{
+    background-color: transparent;
+    border: none;
+    width: 15px;
+  }
+  input[type="text"]
+{
+    font-size:20px;
+}

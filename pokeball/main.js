@@ -3,7 +3,10 @@ const Numbushes=45;
 const pokeball=5;
 const player=document.querySelector('.player');
 var timerDisplay = document.getElementById('timer');
-var scoreDisplay = document.getElementById("scorevalue");
+var val= document.getElementById("scorevalue");
+console.log(val);
+var scoreDisplay=val.getAttribute('value');
+console.log(scoreDisplay);
 // console.log(timerDisplay);
 const player_pos={
     x: parseInt(window.innerWidth/2),
@@ -72,7 +75,6 @@ function collision($div1, $div2) {
     var w2 = $div2.clientWidth;
     var b2 = y2 + h2;
     var r2 = x2 + w2;
-
     if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
     return true;
 }
@@ -81,11 +83,12 @@ function checkcollision(){
     balls.forEach((ball)=>{
         if(collision(ball.ball, player)){
             sound.play()
-            console.log(scoreDisplay.innerText);
-            var score= Number(scoreDisplay.innerText);
+            console.log(scoreDisplay);
+            var score= Number(scoreDisplay);
             console.log(score);
             score++;
-            scoreDisplay.innerText=score;
+            scoreDisplay++;
+            val.setAttribute('value',score);
             ball.ball.remove()
             generateBall()
         }
@@ -117,12 +120,12 @@ window.addEventListener('keydown',function(touchedkey){
         player_vel.x=0;
         player.style.backgroundImage='url("imagepoke/player_left.png")';
     }
-    else if(touchedkey.key=="ArrowRight" && player_pos.x>=1290){
+    else if(touchedkey.key=="ArrowRight" && player_pos.x>=(this.window.innerWidth-60)){
         player_vel.y=0;
         player_vel.x=0;
         player.style.backgroundImage='url("imagepoke/player_right.png")';
     }
-    else if(touchedkey.key=="ArrowUp" && player_pos.y>=560){
+    else if(touchedkey.key=="ArrowUp" && player_pos.y>=(this.window.innerHeight-60)){
         player_vel.y=0;
         player_vel.x=0;
         player.style.backgroundImage='url("imagepoke/player_front.png")';
@@ -137,20 +140,20 @@ window.addEventListener('keydown',function(touchedkey){
     // ---------------------------------------------------------------------------------
     else{
     if(touchedkey.key=="ArrowUp"){
-        player_vel.y=2.5;
+        player_vel.y=2.2;
         player.style.backgroundImage='url("imagepoke/player_front.png")';
     }
     if(touchedkey.key=="ArrowDown"){
-        player_vel.y=-2.5;
+        player_vel.y=-2.2;
         console.log(player.style.backgroundImage);
         player.style.backgroundImage='url("imagepoke/player_back.png")';
     }
     if(touchedkey.key=="ArrowLeft"){
-        player_vel.x=-2.5;
+        player_vel.x=-2.2;
         player.style.backgroundImage='url("imagepoke/player_left.png")';
     }
     if(touchedkey.key=="ArrowRight"){
-        player_vel.x=2.5;
+        player_vel.x=2.2;
         player.style.backgroundImage='url("imagepoke/player_right.png")';
     }
     player.classList.add('active');
@@ -170,7 +173,7 @@ function updateTimer() {
     console.log(seconds);
     seconds--;
     timerDisplay.innerText=seconds;
-    if (seconds<0) {
+    if (seconds==50) {
       clearInterval(timerInterval);
       document.getElementById('score').submit();
     //   alert("Time's up!");

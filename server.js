@@ -17,8 +17,10 @@ app.post("/pokeball",(req,res)=>{
     res.sendFile(__dirname + "/pokeball/pokeball.html");
 })
 app.post("/score",(req,res)=>{
-    res.sendFile(__dirname + "/thanksspage.html");
     console.log(req.body);
+    const val=Number(req.body.score);
+    console.log(val);
+    res.sendFile(__dirname + "/thanksspage.html");
 })
 app.post("/",(req,res)=>{
     console.log(req.body);
