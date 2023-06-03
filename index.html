@@ -1,82 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Awesome Games</title>
-  <style>
-    .game-card {
-      width: 500px;
-      padding: 20px;
-      background-color: #f0f0f0;
-      border-radius: 5px;
-      margin: 10px;
-      display: inline-block;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      background: url('images/games_mainpage.jpg');
-      background-size: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    body{
-        height: 100vh;
-        background: url('images/games_mainpage.jpg');
-        background-size: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .game-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-    
-    .game-card h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    
-    .game-card p {
-      font-size: 14px;
-    }
-    .for_color{
-      color: red;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- if I dont provide the link above and below the font family might not be present on client side so just provide that link  -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        /* Add your preferred styling here */
+        body {
+          background-image: url(images/games_mainpage.jpg);
+          font-family: 'Merriweather', serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #222;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+        a:hover{
+          color: white;
+        }
+        main {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 140px); /* Adjust this height based on your content */
+        }
+        .card {
+            background-color: gold;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer a {
+          font-family: 'Montserrat', sans-serif;
+            color: aquamarine;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Add animations or transitions here */
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .submit-button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        background-color: #ff5c5c;
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        }  
+
+        .submit-button:hover {
+        background-color: #ff3b3b;
+       }
+
+        .submit-button:active {
+          background-color: #ff7d7d;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          transform: translateY(1px);
+        }
+
+  /* Optional: Centering the button */
+        .button-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .para{
+          color: blue;
+        }
+        .headingtab{
+          color: #ff3b3b;
+        }
+    </style>
 </head>
 <body>
-  <h1 class="for_color">Welcome to GameZone and retrieve your childhood!</h1>
-  
-  <div class="game-card">
-    <h3>Game 1</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut finibus lectus.</p>
-    <form action = "/" method = "POST">
-      <button type="submit" name="submit">Play Now</button>
-    </form>
-  </div>
-  
-  <div class="game-card">
-    <h3>Game 2</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut finibus lectus.</p>
-    <form action = "/pokeball" method = "POST">
-      <button type="submit" name="submit">Play Now</button>
-    </form>
-  </div>
-  
-  <div class="game-card">
-    <h3>Game 3</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut finibus lectus.</p>
-    <form action = "/NumberGuesser" method = "POST">
-      <button type="submit" name="submit">Play Now</button>
-    </form>
-  </div>
-  
-  <div class="game-card">
-    <h3>Game 4</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut finibus lectus.</p>
-    <form action = "/xyz" method = "POST">
-      <button type="submit" name="submit">Play Now</button>
-    </form>
-  </div>
+    <header>
+        <h1>Welcome to Games Hub</h1>
+        <p>Retrieve your childhood memories by discovering the world of exciting games!</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2 class="headingtab">Poke Ball</h2>
+            <p class="para">This is a Pokeball game and here you need to collect as many balls in 60s timer, you can move in different
+              directions using arrow keys.
+            </p>
+            <img src="images/pokeballimage.png" alt="Game Image">
+            <form action="/pokeball" method="POST">
+            <div class="button-container">
+              <button class="submit-button">Play Now</button>
+            </div>
+          </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Created by: Divy Chokshi</p>
+        <div>
+            <a href="https://www.linkedin.com/in/divy-chokshi-49b234250/" target="_blank">LinkedIn</a>
+            <a href="https://codeforces.com/profile/Divy_Chokshi" target="_blank">Codeforces</a>
+            <a href="https://github.com/DivyChokshi" target="_blank">Github</a>
+            <!-- Add more social media links here -->
+        </div>
+    </footer>
 </body>
 </html>
