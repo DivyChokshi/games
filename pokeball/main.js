@@ -111,24 +111,52 @@ function init(){
 }
 init();
 window.addEventListener('keydown',function(touchedkey){
+    // --- code for not letting out man out of window-------
+    if(touchedkey.key=="ArrowLeft" && player_pos.x<=0){
+        player_vel.y=0;
+        player_vel.x=0;
+        player.style.backgroundImage='url("imagepoke/player_left.png")';
+    }
+    else if(touchedkey.key=="ArrowRight" && player_pos.x>=1290){
+        player_vel.y=0;
+        player_vel.x=0;
+        player.style.backgroundImage='url("imagepoke/player_right.png")';
+    }
+    else if(touchedkey.key=="ArrowUp" && player_pos.y>=560){
+        player_vel.y=0;
+        player_vel.x=0;
+        player.style.backgroundImage='url("imagepoke/player_front.png")';
+    }
+    else if(touchedkey.key=="ArrowDown" && player_pos.y<=0){
+        player_vel.y=0;
+        player_vel.x=0;
+        player.style.backgroundImage='url("imagepoke/player_back.png")';
+    }
+
+
+    // ---------------------------------------------------------------------------------
+    else{
     if(touchedkey.key=="ArrowUp"){
-        player_vel.y=3;
+        player_vel.y=2.5;
         player.style.backgroundImage='url("imagepoke/player_front.png")';
     }
     if(touchedkey.key=="ArrowDown"){
-        player_vel.y=-3;
+        player_vel.y=-2.5;
         console.log(player.style.backgroundImage);
         player.style.backgroundImage='url("imagepoke/player_back.png")';
     }
     if(touchedkey.key=="ArrowLeft"){
-        player_vel.x=-3;
+        player_vel.x=-2.5;
         player.style.backgroundImage='url("imagepoke/player_left.png")';
     }
     if(touchedkey.key=="ArrowRight"){
-        player_vel.x=3;
+        player_vel.x=2.5;
         player.style.backgroundImage='url("imagepoke/player_right.png")';
     }
     player.classList.add('active');
+    console.log(player_pos.x);
+    console.log(player_pos.y);
+    }
 })
 window.addEventListener('keyup',function(){
     player_vel.x=0;
