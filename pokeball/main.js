@@ -173,7 +173,7 @@ function updateTimer() {
     console.log(seconds);
     seconds--;
     timerDisplay.innerText=seconds;
-    if (seconds==50) {
+    if (seconds==0) {
       clearInterval(timerInterval);
       document.getElementById('score').submit();
     //   alert("Time's up!");
